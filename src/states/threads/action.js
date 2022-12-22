@@ -3,12 +3,12 @@ import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_THREADS: 'RECEIVE_THREADS',
-  FILTER_THREADS: 'FILTER_THREADS',
-  UP_VOTES_THREADS: 'UP_VOTES_THREADS',
-  DOWN_VOTES_THREADS: 'DOWN_VOTES_THREADS',
-  NEUTRAL_VOTES_THREADS: 'NEUTRAL_VOTES_THREADS',
-  ADD_THREAD: 'ADD_THREAD',
+  RECEIVE_THREADS: 'threads/receive',
+  FILTER_THREADS: 'threads/filter',
+  UP_VOTES_THREADS: 'threads/upVotes',
+  DOWN_VOTES_THREADS: 'threads/downVotes',
+  NEUTRAL_VOTES_THREADS: 'threads/neutralVotes',
+  ADD_THREAD: 'threads/add',
 };
 
 function receiveThreadsActionCreator(threads) {

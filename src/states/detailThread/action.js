@@ -3,15 +3,15 @@ import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_DETAIL_THREAD: 'RECEIVE_DETAIL_THREAD',
-  ADD_COMMENT_DETAIL_THREAD: 'ADD_COMMENT_DETAIL_THREAD',
-  CLEAR_DETAIL_THREAD: 'CLEAR_DETAIL_THREAD',
-  UP_VOTES_DETAIL_THREADS: 'UP_VOTES_DETAIL_THREADS',
-  DOWN_VOTES_DETAIL_THREADS: 'DOWN_VOTES_DETAIL_THREADS',
-  NEUTRAL_VOTES_DETAIL_THREADS: 'NEUTRAL_VOTES_DETAIL_THREADS',
-  UP_VOTES_COMMENT: 'UP_VOTES_COMMENT',
-  DOWN_VOTES_COMMENT: 'DOWN_VOTES_COMMENT',
-  NEUTRAL_VOTES_COMMENT: 'NEUTRAL_VOTES_COMMENT',
+  RECEIVE_DETAIL_THREAD: 'detailThread/receive',
+  ADD_COMMENT_DETAIL_THREAD: 'detailThread/addComment',
+  CLEAR_DETAIL_THREAD: 'detailThread/clear',
+  UP_VOTES_DETAIL_THREADS: 'detailThread/upVotes',
+  DOWN_VOTES_DETAIL_THREADS: 'detailThread/downVotes',
+  NEUTRAL_VOTES_DETAIL_THREADS: 'detailThread/neutralVotes',
+  UP_VOTES_COMMENT: 'detailThread/upVotesComment',
+  DOWN_VOTES_COMMENT: 'detailThread/downVotesComment',
+  NEUTRAL_VOTES_COMMENT: 'detailThread/neutralVotesComment',
 };
 
 function receiveDetailThreadActionCreator(detailThread) {

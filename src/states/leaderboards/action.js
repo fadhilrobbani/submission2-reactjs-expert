@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_LEADERBOARDS: 'RECEIVE_LEADERBOARDS',
+  RECEIVE_LEADERBOARDS: 'leaderboards/receive',
 };
 
 function receiveLeaderboardsActionCreator(leaderboards) {

@@ -1,6 +1,6 @@
 const ActionType = {
-  RECEIVE_CATEGORIES: 'RECEIVE_CATEGORIES',
-  SET_CATEGORIES: 'SET_CATEGORY',
+  RECEIVE_CATEGORIES: 'categories/receive',
+  SET_CATEGORIES: 'categories/set',
 };
 
 function setCategoriesActionCreator(category) {

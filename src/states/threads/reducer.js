@@ -4,10 +4,6 @@ function threadsReducer(threads = [], action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_THREADS:
       return action.payload.threads;
-    case ActionType.FILTER_THREADS:
-      return threads.filter(
-        (thread) => thread.category === action.payload.category
-      );
     case ActionType.ADD_THREAD:
       return [action.payload.thread, ...threads];
     case ActionType.UP_VOTES_THREADS:

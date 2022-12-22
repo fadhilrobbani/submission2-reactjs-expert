@@ -93,7 +93,7 @@ describe('threadsReducer function', () => {
     expect(nextState).toStrictEqual([action.payload.thread, ...initialState]);
   });
 
-  it('should return the threads with new upVotes when given by threads/upVotes action', () => {
+  it('should return the threads with new upVotesBy if upVotesBy and downVotesBy are empty when given by threads/upVotes action', () => {
     const initialState = [
       {
         id: 'thread-1',
@@ -102,17 +102,6 @@ describe('threadsReducer function', () => {
         category: 'General',
         createdAt: '2021-06-21T07:00:00.000Z',
         ownerId: 'users-1',
-        upVotesBy: [],
-        downVotesBy: [],
-        totalComments: 0,
-      },
-      {
-        id: 'thread-2',
-        title: 'Thread Kedua',
-        body: 'Ini adalah thread kedua',
-        category: 'General',
-        createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-2',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -139,13 +128,154 @@ describe('threadsReducer function', () => {
         downVotesBy: [],
         totalComments: 0,
       },
+    ]);
+  });
+
+  it('should return the threads with new upVotesBy and empty downVotesBy if upVotesBy is empty and user already downVotes when given by threads/upVotes action', () => {
+    const initialState = [
       {
-        id: 'thread-2',
-        title: 'Thread Kedua',
-        body: 'Ini adalah thread kedua',
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
         category: 'General',
         createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-2',
+        ownerId: 'users-1',
+        upVotesBy: [],
+        downVotesBy: ['users-1'],
+        totalComments: 0,
+      },
+    ];
+    const action = {
+      type: ActionType.UP_VOTES_THREADS,
+      payload: {
+        threadId: 'thread-1',
+        authUserId: 'users-1',
+      },
+    };
+
+    const nextState = threadsReducer(initialState, action);
+    expect(nextState).toStrictEqual([
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: [action.payload.authUserId],
+        downVotesBy: [],
+        totalComments: 0,
+      },
+    ]);
+  });
+
+  it('should return the threads with new downVotesBy if upVotesBy and downVotesBy are empty when given by threads/downVotes action', () => {
+    const initialState = [
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: [],
+        downVotesBy: [],
+        totalComments: 0,
+      },
+    ];
+    const action = {
+      type: ActionType.DOWN_VOTES_THREADS,
+      payload: {
+        threadId: 'thread-1',
+        authUserId: 'users-1',
+      },
+    };
+
+    const nextState = threadsReducer(initialState, action);
+    expect(nextState).toStrictEqual([
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: [],
+        downVotesBy: [action.payload.authUserId],
+        totalComments: 0,
+      },
+    ]);
+  });
+
+  it('should return the threads with new downVotesBy and empty downVotesBy if upVotesBy already upVotes and downVotesBy os empty when given by threads/downVotes action', () => {
+    const initialState = [
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: ['users-1'],
+        downVotesBy: [],
+        totalComments: 0,
+      },
+    ];
+    const action = {
+      type: ActionType.DOWN_VOTES_THREADS,
+      payload: {
+        threadId: 'thread-1',
+        authUserId: 'users-1',
+      },
+    };
+
+    const nextState = threadsReducer(initialState, action);
+    expect(nextState).toStrictEqual([
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: [],
+        downVotesBy: [action.payload.authUserId],
+        totalComments: 0,
+      },
+    ]);
+  });
+
+  it('should return the threads with empty upVotesBy and downVotesBy when given by threads/neutralVotes action', () => {
+    const initialState = [
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
+        upVotesBy: ['users-1'],
+        downVotesBy: ['users-1'],
+        totalComments: 0,
+      },
+    ];
+    const action = {
+      type: ActionType.NEUTRAL_VOTES_THREADS,
+      payload: {
+        threadId: 'thread-1',
+        authUserId: 'users-1',
+      },
+    };
+
+    const nextState = threadsReducer(initialState, action);
+    expect(nextState).toStrictEqual([
+      {
+        id: 'thread-1',
+        title: 'Thread Pertama',
+        body: 'Ini adalah thread pertama',
+        category: 'General',
+        createdAt: '2021-06-21T07:00:00.000Z',
+        ownerId: 'users-1',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,

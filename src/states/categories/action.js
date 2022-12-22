@@ -1,5 +1,4 @@
 const ActionType = {
-  RECEIVE_CATEGORIES: 'categories/receive',
   SET_CATEGORIES: 'categories/set',
 };
 

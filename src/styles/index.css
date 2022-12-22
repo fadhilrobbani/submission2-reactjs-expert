@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply font-sans;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+main {
+  @apply mt-12;
+}

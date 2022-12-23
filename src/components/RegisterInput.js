@@ -14,7 +14,7 @@ function RegisterInput({ onRegister }) {
   };
   return (
     <div className="bg-slate-600 text-slate-200 w-3/4 h-fit max-w-lg py-3 mt-10 gap-6 rounded-lg flex flex-col items-center shadow-md">
-      <h1 className="text-center font-bold text-xl">Register</h1>
+      <h1 className="text-center font-bold text-xl">Register Form</h1>
       <form
         onSubmit={onSubmitHandler}
         className="w-4/5 flex flex-col gap-6 justify-center"

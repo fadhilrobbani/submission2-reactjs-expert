@@ -28,7 +28,7 @@ describe('LoginInput component', () => {
     expect(passwordInput).toHaveValue('dummypassword');
   });
 
-  it('should call login function when clicked', () => {
+  it('should call onLogin function when clicked', () => {
     const mockLogin = jest.fn();
     render(
       <Router>

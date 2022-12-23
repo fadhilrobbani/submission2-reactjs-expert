@@ -41,6 +41,7 @@ function BottomBar({ onLogoutHandler }) {
               : ''
           }
           type="button"
+          data-testid="leaderboardsButton"
           onClick={() => navigate('/leaderboards')}
         >
           <svg

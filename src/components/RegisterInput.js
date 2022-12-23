@@ -57,6 +57,7 @@ function RegisterInput({ onRegister }) {
                  border border-slate-400 py-2 px-4 rounded-md w-full mt-2"
               type="password"
               id="password"
+              data-testid="password"
               value={password}
               placeholder="******"
               onChange={setPassword}
@@ -72,6 +73,7 @@ function RegisterInput({ onRegister }) {
                  border border-slate-400 py-2 px-4 rounded-md w-full mt-2"
               type="password"
               id="confirmPassword"
+              data-testid="confirmPassword"
               value={confirmPassword}
               placeholder="******"
               onChange={setConfirmPassword}

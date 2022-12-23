@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "ci:test": "react-scripts test --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +60,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
+    "start-server-and-test": "^1.15.2",
     "tailwindcss": "^3.2.4"
   }
 }

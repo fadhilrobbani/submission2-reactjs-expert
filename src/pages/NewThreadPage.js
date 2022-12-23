@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import ThreadInput from '../components/ThreadInput';
 import { asyncAddThread } from '../states/threads/action';
 
@@ -12,7 +11,7 @@ function NewThreadPage() {
 
   const onAddThreadHandler = ({ title, body, category }) => {
     if (title === '' || body === '') {
-      swal('Title and Thread body is required');
+      alert('Title and Thread body is required');
       return;
     }
     dispatch(asyncAddThread({ title, body, category }));

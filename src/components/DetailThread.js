@@ -7,7 +7,6 @@ import {
   AiFillDislike,
 } from 'react-icons/ai';
 import parse from 'html-react-parser';
-import swal from 'sweetalert';
 import postedAt from '../utils';
 import CommentInput from './CommentInput';
 import CommentsList from './CommentsList';
@@ -36,7 +35,7 @@ function DetailThread({
 
   const onUpVotesClick = () => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onUpVotes(threadId);
@@ -44,7 +43,7 @@ function DetailThread({
 
   const onDownVotesClick = () => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onDownVotes(threadId);
@@ -52,7 +51,7 @@ function DetailThread({
 
   const onNeutralVotesClick = ({ voteTypeBefore }) => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onNeutralVotes({ threadId, voteTypeBefore });

@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import swal from 'sweetalert';
 import api from '../../utils/api';
 import { receiveThreadsActionCreator } from '../threads/action';
 import { receiveUsersActionCreator } from '../users/action';
@@ -13,7 +12,7 @@ function asyncPopulateUsersAndThreads() {
       dispatch(receiveUsersActionCreator(users));
       dispatch(receiveThreadsActionCreator(threads));
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };

@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -65,7 +64,7 @@ function asyncAddThread({ title, body, category }) {
       const thread = await api.createThread({ title, body, category });
       dispatch(addThreadActionCreator(thread));
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };
@@ -79,7 +78,7 @@ function asyncUpVotesThread(threadId) {
     try {
       await api.upVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       const { downVotesBy } = threads.filter(
         (thread) => thread.id === threadId
       )[0];
@@ -103,7 +102,7 @@ function asyncDownVotesThread(threadId) {
     try {
       await api.downVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       const { upVotesBy } = threads.filter(
         (thread) => thread.id === threadId
       )[0];
@@ -127,7 +126,7 @@ function asyncNeutralVotesThread({ threadId, voteTypeBefore }) {
     try {
       await api.neutralVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       if (voteTypeBefore === 1) {
         dispatch(upVotesThreadCreator({ threadId, authUserId: authUser.id }));
       }

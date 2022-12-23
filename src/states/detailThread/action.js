@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -109,7 +108,7 @@ function asyncReceiveDetailThread(id) {
       const detailThread = await api.getDetailThread(id);
       dispatch(receiveDetailThreadActionCreator(detailThread));
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };
@@ -122,7 +121,7 @@ function asyncAddCommentDetailThread({ id, content }) {
       const comment = await api.createComment({ id, content });
       dispatch(addCommentDetailThreadActionCreator(comment));
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };
@@ -138,7 +137,7 @@ function asyncUpVotesDetailThread(threadId) {
     try {
       await api.upVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       if (detailThread.downVotesBy.includes(authUser.id)) {
         dispatch(
           downVotesDetailThreadActionCreator({
@@ -169,7 +168,7 @@ function asyncDownVotesDetailThread(threadId) {
     try {
       await api.downVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       if (detailThread.upVotesBy.includes(authUser.id)) {
         dispatch(
           upVotesDetailThreadActionCreator({
@@ -203,7 +202,7 @@ function asyncNeutralVotesDetailThread({ threadId, voteTypeBefore }) {
     try {
       await api.neutralVoteThread(threadId);
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       if (voteTypeBefore === 1) {
         dispatch(
           upVotesDetailThreadActionCreator({
@@ -240,7 +239,7 @@ function asyncUpVotesComment({ threadId, commentId }) {
     try {
       await api.upVoteComment({ threadId, commentId });
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       const { downVotesBy } = detailThread.comments.filter(
         (comment) => comment.id === commentId
       )[0];
@@ -280,7 +279,7 @@ function asyncDownVotesComment({ threadId, commentId }) {
     try {
       await api.downVoteComment({ threadId, commentId });
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       const { upVotesBy } = detailThread.comments.filter(
         (comment) => comment.id === commentId
       )[0];
@@ -320,7 +319,7 @@ function asyncNeutralVotesComment({ threadId, commentId, voteTypeBefore }) {
     try {
       await api.neutralVoteComment({ threadId, commentId });
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
       if (voteTypeBefore === 1) {
         dispatch(
           upVotesCommentActionCreator({

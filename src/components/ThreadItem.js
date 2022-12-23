@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { BiCommentDetail } from 'react-icons/bi';
 import parse from 'html-react-parser';
-import swal from 'sweetalert';
 import postedAt from '../utils';
 
 function ThreadItem({
@@ -33,7 +32,7 @@ function ThreadItem({
 
   const onUpVotesClick = () => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onUpVotes(threadId);
@@ -41,7 +40,7 @@ function ThreadItem({
 
   const onDownVotesClick = () => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onDownVotes(threadId);
@@ -49,7 +48,7 @@ function ThreadItem({
 
   const onNeutralVotesClick = ({ voteTypeBefore }) => {
     if (!authUserId) {
-      swal('You must login to like/dislike this post');
+      alert('You must login to like/dislike this post');
       return;
     }
     onNeutralVotes({ threadId, voteTypeBefore });

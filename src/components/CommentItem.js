@@ -8,7 +8,6 @@ import {
 } from 'react-icons/ai';
 import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
-import swal from 'sweetalert';
 import postedAt from '../utils';
 
 function CommentItem({
@@ -24,7 +23,7 @@ function CommentItem({
 
   const onUpVotesCommentClick = () => {
     if (!authUser?.id) {
-      swal('You must login to like/dislike this comment');
+      alert('You must login to like/dislike this comment');
       return;
     }
     onUpVotesComment(comment.id);
@@ -32,7 +31,7 @@ function CommentItem({
 
   const onDownVotesCommentClick = () => {
     if (!authUser?.id) {
-      swal('You must login to like/dislike this comment');
+      alert('You must login to like/dislike this comment');
       return;
     }
     onDownVotesComment(comment.id);
@@ -40,7 +39,7 @@ function CommentItem({
 
   const onNeutralVotesCommentClick = ({ voteTypeBefore }) => {
     if (!authUser?.id) {
-      swal('You must login to like/dislike this comment');
+      alert('You must login to like/dislike this comment');
       return;
     }
     onNeutralVotesComment({ commentId: comment.id, voteTypeBefore });

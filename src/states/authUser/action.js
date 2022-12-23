@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import swal from 'sweetalert';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -34,7 +33,7 @@ function asyncSetAuthUser({ email, password }) {
       const authUser = await api.getOwnProfile();
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
-      swal(error.message);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };

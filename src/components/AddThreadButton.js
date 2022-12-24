@@ -8,7 +8,10 @@ function AddThreadButton() {
   const navigate = useNavigate();
   if (!authUser) return null;
   return (
-    <div className="bg-teal-500 cursor-pointer shadow-md z-[100] fixed rounded-full p-2 bottom-[85px] right-[30px] hover:bg-teal-700 opacity-90">
+    <div
+      id="addThreadButton"
+      className="bg-teal-500 cursor-pointer shadow-md z-[100] fixed rounded-full p-2 bottom-[85px] right-[30px] hover:bg-teal-700 opacity-90"
+    >
       <AiOutlinePlus
         onClick={() => navigate('/new')}
         className="text-slate-200"

@@ -29,6 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
+    "e2e": "cypress run",
     "ci:test": "react-scripts test --watchAll=false"
   },
   "eslintConfig": {
@@ -51,9 +52,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "cypress": "^12.2.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.2.1",

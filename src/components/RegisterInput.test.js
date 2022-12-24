@@ -38,22 +38,22 @@ describe('RegisterInput component', () => {
     expect(passwordInput).toHaveValue('kucingoren');
   });
 
-  it.skip('should handle confirmPassword typing correctly', async () => {
+  it('should handle confirmPassword typing correctly', () => {
     render(
       <Router>
         <RegisterInput onRegister={() => {}} />
       </Router>
     );
     const confirmPasswordInput = screen.getByTestId('confirmPassword');
-    await userEvent.type(confirmPasswordInput, 'kucingoren');
+    userEvent.type(confirmPasswordInput, 'kucingoren');
     expect(confirmPasswordInput).toHaveValue('kucingoren');
   });
 
-  it.skip('should call onRegister function when clicked', () => {
+  it('should call onRegister function when clicked and success register', () => {
     const mockRegister = jest.fn();
     render(
       <Router>
-        <RegisterInput onLogin={mockRegister} />
+        <RegisterInput onRegister={mockRegister} />
       </Router>
     );
     const nameInput = screen.getByPlaceholderText('Your Name');
@@ -68,13 +68,14 @@ describe('RegisterInput component', () => {
     const confirmPasswordInput = screen.getByTestId('confirmPassword');
     userEvent.type(confirmPasswordInput, 'kucingoren');
 
-    const registerButton = screen.getByRole('button', { name: 'Register' });
+    const registerButton = screen.getByTestId('registerButton');
     userEvent.click(registerButton);
 
     expect(mockRegister).toBeCalledWith({
       name: 'kucingoren',
       email: 'kucingoren@gmail.com',
       password: 'kucingoren',
+      confirmPassword: 'kucingoren',
     });
   });
 });

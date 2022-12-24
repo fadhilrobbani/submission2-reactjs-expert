@@ -66,7 +66,7 @@ function RegisterInput({ onRegister }) {
           </label>
         </div>
         <div className="flex flex-col justify-center">
-          <label htmlFor="password" className="font-semibold">
+          <label htmlFor="confirmPassword" className="font-semibold">
             <p>Confirm Password</p>
             <input
               className="bg-slate-500 text-slate-200 
@@ -83,6 +83,7 @@ function RegisterInput({ onRegister }) {
         </div>
         <button
           type="submit"
+          data-testid="registerButton"
           className=" text-slate-100 bg-teal-700 px-3 py-2 rounded-md hover:bg-teal-800 "
         >
           Register

@@ -94,6 +94,6 @@ describe('asyncPopulateUsersAndThreads Thunk', () => {
 
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
-    expect(dispatch).toHaveBeenCalledWith(fakeErrorResponse.message);
+    expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
   });
 });

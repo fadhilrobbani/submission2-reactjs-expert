@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import BottomBar from '../components/BottomBar';
 
 const stories = {
@@ -8,6 +9,14 @@ const stories = {
 
 export default stories;
 
-const TemplateStory = (args) => <BottomBar {...args} />;
+const TemplateStory = (args) => (
+  <Router>
+    <BottomBar {...args} />
+  </Router>
+);
 const withNotLogin = TemplateStory.bind({});
+withNotLogin.args = {
+  onLogoutHandler: () => {},
+  authUserId: '',
+};
 export { withNotLogin };

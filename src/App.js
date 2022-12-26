@@ -14,9 +14,7 @@ import { asyncUnsetAuthUser } from './states/authUser/action';
 import { asyncPreloadProcess } from './states/isPreload/action';
 
 function App() {
-  const { isPreload = false, authUser = null } = useSelector(
-    (states) => states
-  );
+  const { isPreload = false } = useSelector((states) => states);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,12 +23,8 @@ function App() {
   }, [dispatch]);
 
   const onLogoutHandler = () => {
-    if (authUser) {
-      dispatch(asyncUnsetAuthUser());
-      navigate('/login');
-    } else {
-      navigate('/login');
-    }
+    dispatch(asyncUnsetAuthUser());
+    navigate('/login');
   };
   if (isPreload) {
     return null;

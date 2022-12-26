@@ -13,6 +13,7 @@ function BottomBar({ onLogoutHandler }) {
       <div className="btm-nav z-50 bg-slate-700 text-slate-100">
         <button
           type="button"
+          data-testid="homeButton"
           className={
             window.location.pathname === '/' ? 'active bg-slate-600' : ''
           }
@@ -62,10 +63,11 @@ function BottomBar({ onLogoutHandler }) {
         </button>
         <button
           type="button"
+          data-testid="loginOrLogoutButton"
           className={
             window.location.pathname === '/login' ? 'active bg-slate-600' : ''
           }
-          onClick={onLogoutHandler}
+          onClick={authUser ? onLogoutHandler : () => navigate('/login')}
         >
           {!authUser ? (
             <AiOutlineLogin size={25} />
@@ -73,7 +75,7 @@ function BottomBar({ onLogoutHandler }) {
             <AiOutlineLogout size={25} />
           )}
 
-          <span className="btm-nav-label">{authUser ? 'logout' : 'login'}</span>
+          <span className="btm-nav-label">{authUser ? 'Logout' : 'Login'}</span>
         </button>
       </div>
     </div>

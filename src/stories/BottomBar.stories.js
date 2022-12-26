@@ -14,9 +14,13 @@ const TemplateStory = (args) => (
     <BottomBar {...args} />
   </Router>
 );
-const withNotLogin = TemplateStory.bind({});
-withNotLogin.args = {
-  onLogoutHandler: () => {},
+const onUserLoggedIn = TemplateStory.bind({});
+onUserLoggedIn.args = {
   authUserId: '',
 };
-export { withNotLogin };
+
+const onUserNotLoggedIn = TemplateStory.bind({});
+onUserNotLoggedIn.args = {
+  authUserId: 'users-2',
+};
+export { onUserLoggedIn, onUserNotLoggedIn };

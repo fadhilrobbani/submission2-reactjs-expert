@@ -37,6 +37,7 @@ function ThreadInput({ onAddThread }) {
                border border-slate-400 py-2 px-4 rounded-md w-full"
             type="text"
             value={body}
+            data-testid="textArea"
             placeholder="Write Something ..."
             onChange={setBody}
           />

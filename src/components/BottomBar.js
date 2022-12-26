@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineLogin, AiOutlineLogout } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
-function BottomBar({ onLogoutHandler }) {
-  const { authUser = null } = useSelector((states) => states);
+function BottomBar({ onLogoutHandler, authUserId }) {
   const navigate = useNavigate();
 
   return (
@@ -67,15 +65,17 @@ function BottomBar({ onLogoutHandler }) {
           className={
             window.location.pathname === '/login' ? 'active bg-slate-600' : ''
           }
-          onClick={authUser ? onLogoutHandler : () => navigate('/login')}
+          onClick={authUserId ? onLogoutHandler : () => navigate('/login')}
         >
-          {!authUser ? (
+          {!authUserId ? (
             <AiOutlineLogin size={25} />
           ) : (
             <AiOutlineLogout size={25} />
           )}
 
-          <span className="btm-nav-label">{authUser ? 'Logout' : 'Login'}</span>
+          <span className="btm-nav-label">
+            {authUserId ? 'Logout' : 'Login'}
+          </span>
         </button>
       </div>
     </div>
@@ -84,6 +84,7 @@ function BottomBar({ onLogoutHandler }) {
 
 BottomBar.propTypes = {
   onLogoutHandler: PropTypes.func.isRequired,
+  authUserId: PropTypes.string.isRequired,
 };
 
 export default BottomBar;

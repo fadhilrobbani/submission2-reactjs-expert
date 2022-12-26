@@ -54,6 +54,7 @@ function LoginInput({ onLogin }) {
         </span>
         <button
           type="submit"
+          id="loginUser"
           className=" text-slate-100 bg-teal-700 px-3 py-2 rounded-md hover:bg-teal-800 "
         >
           Login

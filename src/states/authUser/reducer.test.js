@@ -1,6 +1,16 @@
 import { ActionType } from './action';
 import authUserReducer from './reducer';
 
+/**
+ * test scenario for authUserReducer
+ *
+ * - authUserReducers function
+ *  - should return the initial state when given by unknown action
+ *  - should return authUser when given by authUser/set action
+ *  - should return null when given by authUser/unset action
+ *
+ */
+
 describe('authUserReducer funtion', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = null;

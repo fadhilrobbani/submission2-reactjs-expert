@@ -1,6 +1,26 @@
 import { ActionType } from './action';
 import detailThreadReducer from './reducer';
 
+/**
+ * test scenario for detailThreadReducer
+ *
+ * - detailThreadReducers function
+ *  - should return the initial state when given by unknown action
+ *  - should return null when given by detailThread/clear action
+ *  - should return detailThread object with new comments property when given by detailThread/addComment action
+ * `- should return the detailThread with new upVotesBy if upVotesBy and downVotesBy are empty when given by detailThread/upVotes action
+ *  - should return the detailThread with new upVotesBy and empty downVotesBy if user already downVotesBy when given by detailThread/upVotes action
+ * `- should return the detailThread with new downVotesBy if upVotesBy and downVotesBy are empty when given by detailThread/downVotes action
+ *  - should return the detailThread with new downVotesBy and empty upVotesBy if upVotesBy already upvote by user and downVotesBy are empty when given by detailThread/downVotes action
+ *  - should return the detailThread with empty upVotesBy and downVotesBy  when given by detailThread/neutralVotes action
+ *  - should return the detailThread with new upVotesBy in comments property if upVotesBy and downVotesBy in comments property are empty when given by detailThread/upVotesComment action
+ *  - should return the detailThread with new upVotesBy in comments property if upVotesBy is empty and downVotesBy already downVotesBy in comments property when given by detailThread/upVotesComment action
+ *  - should return the detailThread with new downVotesBy in comments property if upVotesBy and downVotesBy in comments property are empty when given by detailThread/downVotesComment action
+ *  - should return the detailThread with new downVotesBy in comments property if upVotesBy already upVotesBy by user and empty downVotesBy in comments property when given by detailThread/downVotesComment action
+ *  - should return the detailThread with empty upVotesBy and downVotesBy in comments property when given by detailThread/neutralVotesComment action
+ *
+ */
+
 describe('detailThreadReducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = [];

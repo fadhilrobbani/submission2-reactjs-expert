@@ -1,6 +1,21 @@
 import threadsReducer from './reducer';
 import { ActionType } from './action';
 
+/**
+ * test scenario for threadsReducer
+ *
+ * - threadsReducers function
+ *  - should return the initial state when given by unknown action
+ *  - should return the threads when given by threads/receive action
+ *  - should return the threads with the new threads when given by threads/add action
+ *  - should return the threads with new upVotesBy if upVotesBy and downVotesBy are empty when given by threads/upVotes action
+ *  - should return the threads with new upVotesBy and empty downVotesBy if upVotesBy is empty and user already downVotes when given by threads/upVotes action
+ *  - should return the threads with new downVotesBy if upVotesBy and downVotesBy are empty when given by threads/downVotes action
+ *  - should return the threads with new downVotesBy and empty downVotesBy if upVotesBy already upVotes and downVotesBy os empty when given by threads/downVotes action
+ *  - should return the threads with empty upVotesBy and downVotesBy when given by threads/neutralVotes action
+ *
+ */
+
 describe('threadsReducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = [];

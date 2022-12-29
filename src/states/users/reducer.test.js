@@ -1,7 +1,16 @@
 import { ActionType } from './action';
 import usersReducer from './reducer';
 
-describe('usersReducer funtion', () => {
+/**
+ * test scenario for usersReducer
+ *
+ * - usersReducers function
+ *  - should return the initial state when given by unknown action
+ *  - should return new users when given by users/receive action
+ *
+ */
+
+describe('usersReducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = [];
     const action = { type: 'UNKNOWN' };

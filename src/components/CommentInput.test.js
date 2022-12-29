@@ -11,6 +11,7 @@ import CommentInput from './CommentInput';
  * - CommentInput Component
  *  - should show text "Please login to comment" when user not login
  *  - should show textarea input and create button when user is already logged in
+ *  - textarea should typing correctly
  *  - should call onAddComment function when create button clicked when user is already logged in
  *  -
  */
@@ -40,6 +41,16 @@ describe('CommentInput Component', () => {
     const createButton = screen.getByRole('button', { name: 'Create' });
     expect(createButton).toBeVisible();
     expect(createButton).toBeEnabled();
+  });
+
+  it('textarea comment should typing correctly', () => {
+    render(
+      <Router>
+        <CommentInput authUserId="users-1" onAddComment={() => {}} />
+      </Router>
+    );
+
+    const commentInputArea = screen.getByPlaceholderText('Write Something ...');
     userEvent.type(
       commentInputArea,
       'hello, this is example for how to make fried egg'

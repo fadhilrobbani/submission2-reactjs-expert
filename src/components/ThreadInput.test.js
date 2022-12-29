@@ -11,6 +11,7 @@ import ThreadInput from './ThreadInput';
  * - ThreadInput Component
  *  - should handle title typing correctly
  *  - should handle category typing correctly
+ *  - should handle thread text typing correctly
  *  - should call onAddThread function when Create button clicked
  */
 
@@ -34,6 +35,17 @@ describe('ThreadInput Component', () => {
     const categoryInput = screen.getByPlaceholderText('Category');
     userEvent.type(categoryInput, 'random');
     expect(categoryInput).toHaveValue('random');
+  });
+
+  it('should handle thread text typing correctly', () => {
+    render(
+      <Router>
+        <ThreadInput onAddThread={() => {}} />
+      </Router>
+    );
+    const textInput = screen.getByTestId('textArea');
+    userEvent.type(textInput, 'hidup cuma sekali');
+    expect(textInput).toHaveValue('hidup cuma sekali');
   });
 
   it('should call onAddThread when Create button clicked', () => {

@@ -25,7 +25,7 @@ describe('BottomBar Component', () => {
   it('home button should be enabled and call hooks navigate to "/" when clicked', () => {
     render(
       <Router>
-        <BottomBar onLogoutHandler={() => {}} />
+        <BottomBar onLogoutHandler={() => {}} authUserId="" />
       </Router>
     );
     const homeButton = screen.getByTestId('homeButton');

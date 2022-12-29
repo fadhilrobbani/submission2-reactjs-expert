@@ -5,6 +5,15 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import LoginInput from './LoginInput';
 
+/**
+ * test scenario
+ *
+ * - LoginInput Component
+ *  - should handle email typing correctly
+ *  - should handle password typing correctly
+ *  - should call onLogin function when Login button clicked
+ */
+
 describe('LoginInput component', () => {
   it('should handle email typing correctly', () => {
     render(
@@ -28,7 +37,7 @@ describe('LoginInput component', () => {
     expect(passwordInput).toHaveValue('dummypassword');
   });
 
-  it('should call onLogin function when clicked', () => {
+  it('should call onLogin function when Login button clicked', () => {
     const mockLogin = jest.fn();
     render(
       <Router>

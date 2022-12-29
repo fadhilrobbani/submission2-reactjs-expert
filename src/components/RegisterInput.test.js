@@ -5,6 +5,17 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import RegisterInput from './RegisterInput';
 
+/**
+ * test scenario
+ *
+ * - RegisterInput Component
+ *  - should handle name typing correctly
+ *  - should handle email typing correctly
+ *  - should handle password typing correctly
+ *  - should handle confirmPassword typing correctly
+ *  - should call onRegister function when clicked
+ */
+
 describe('RegisterInput component', () => {
   it('should handle name typing correctly', () => {
     render(
@@ -49,7 +60,7 @@ describe('RegisterInput component', () => {
     expect(confirmPasswordInput).toHaveValue('kucingoren');
   });
 
-  it('should call onRegister function when clicked and success register', () => {
+  it('should call onRegister function when Register button clicked', () => {
     const mockRegister = jest.fn();
     render(
       <Router>

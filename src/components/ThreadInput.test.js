@@ -5,6 +5,15 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import ThreadInput from './ThreadInput';
 
+/**
+ * test scenario
+ *
+ * - ThreadInput Component
+ *  - should handle title typing correctly
+ *  - should handle category typing correctly
+ *  - should call onAddThread function when Create button clicked
+ */
+
 describe('ThreadInput Component', () => {
   it('should handle title typing correctly', () => {
     render(

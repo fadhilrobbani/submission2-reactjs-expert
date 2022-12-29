@@ -5,8 +5,18 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import CommentInput from './CommentInput';
 
+/**
+ * test scenario
+ *
+ * - CommentInput Component
+ *  - should show text "Please login to comment" when user not login
+ *  - should show textarea input and create button when user is already logged in
+ *  - should call onAddComment function when create button clicked when user is already logged in
+ *  -
+ */
+
 describe('CommentInput Component', () => {
-  it('should show text "Please login to comment" when authUserId is empty string ', () => {
+  it('should show text "Please login to comment" when user not login ', () => {
     render(
       <Router>
         <CommentInput authUserId="" onAddComment={() => {}} />
@@ -18,7 +28,7 @@ describe('CommentInput Component', () => {
     expect(message.textContent).toBe('Please login to comment');
   });
 
-  it('should show textarea input and create button when authUserId is not empty ', () => {
+  it('should show textarea input and create button when user is already logged in ', () => {
     render(
       <Router>
         <CommentInput authUserId="users-1" onAddComment={() => {}} />
@@ -39,7 +49,7 @@ describe('CommentInput Component', () => {
     );
   });
 
-  it('should call onAddComment function when create button clicked  ', () => {
+  it('should call onAddComment function when create button clicked when user is already logged in  ', () => {
     const mockAddComment = jest.fn();
     render(
       <Router>

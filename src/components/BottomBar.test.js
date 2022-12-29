@@ -5,6 +5,16 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import BottomBar from './BottomBar';
 
+/**
+ * test scenario
+ *
+ * - BottomBar Component
+ *  - home button should be enabled and call hooks navigate to "/" when clicked
+ *  - leaderboards button should be enabled and call hooks navigate to "/leaderboards" when clicked
+ *  - login button should be enabled and call hooks navigate to "/login" when clicked if user not login
+ *  - logout button should be enabled and call onLogoutHandler function when clicked if user already login
+ */
+
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -54,7 +64,7 @@ describe('BottomBar Component', () => {
     expect(mockedUsedNavigate).toHaveBeenCalledWith('/login');
   });
 
-  it('logout button should be enabled and call hooks navigate to "/login" when clicked if user already login', () => {
+  it('logout button should be enabled and call onLogoutHandler function when clicked if user already login', () => {
     const onLogoutHandler = jest.fn();
     render(
       <Router>

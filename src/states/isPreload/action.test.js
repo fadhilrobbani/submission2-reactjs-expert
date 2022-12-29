@@ -4,6 +4,14 @@ import api from '../../utils/api';
 import { asyncPreloadProcess, setIsPreloadActionCreator } from './action';
 import { setAuthUserActionCreator } from '../authUser/action';
 
+/**
+ * test scenario
+ *
+ * - asyncPreloadSuccess Thunk
+ *  - should dispatch action correctly when loading authUser success
+ *  - should dispatch action  correctly when loading authUser failed
+ */
+
 const fakeUser = {
   id: 'test',
   name: 'test',

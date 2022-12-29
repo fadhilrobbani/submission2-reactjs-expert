@@ -6,6 +6,14 @@ import {
   receiveLeaderboardsActionCreator,
 } from './action';
 
+/**
+ * test scenario
+ *
+ * - asyncGetLeaderboards Thunk
+ *  - should dispatch action correctly when get leaderboards success
+ *  - should dispatch action and show alert correctly when get leaderboards failed
+ */
+
 const fakeGetLeaderBoardsResponse = [
   {
     user: {

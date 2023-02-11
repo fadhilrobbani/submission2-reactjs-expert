@@ -22,6 +22,7 @@ function App() {
 
   useEffect(() => {
     dispatch(asyncPreloadProcess());
+    //hoi
   }, [dispatch]);
 
   const onLogoutHandler = () => {
